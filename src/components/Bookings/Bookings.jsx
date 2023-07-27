@@ -1,25 +1,24 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+//TODO: insert more info inputs > date and time you want to book, number of persons, lastname, number, comments (see other webs as la Diva or Saona)
+
 const Bookings = () => {
   const initialState = {
     name: "",
     email: "",
+    persons: "",
   };
 
   //ESTADOS DEL COMPONENTE
-  //estado del formulario
+
   const [data, setData] = useState(initialState);
-  //estado del botón disabled
   const [btnDisabled, setBtnDisabled] = useState(true);
-  //estado del mensaje de validación
   const [message, setMessage] = useState("");
   const navigate = useNavigate(); //inicializamos navigate
 
   // FUNCIONES
   const handleInputChange = (event) => {
-    // console.log(event.target.name); //nombre del input en el que escribo
-    // console.log(event.target.value); //lo que escribo
     if (data.name.length < 3) {
       setMessage("Name must be at least 3 characters");
       setBtnDisabled(true);
@@ -41,7 +40,6 @@ const Bookings = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     //acciones formularios
-    console.log("Datos formulario", data);
     localStorage.setItem("user", JSON.stringify(data));
     //limpiamos formulario
     clearForm(); //necesitamos el value en el input para poder modificar el status
@@ -53,43 +51,44 @@ const Bookings = () => {
 
   return (
     <>
-    <h1>Bookings</h1>
-    
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="name"
-          onChange={handleInputChange}
-          name="name"
-          value={data.name} //value conecta nuestro input con el estado. Nos permitira hacer el clear
-        />
-        <input
-          type="email"
-          placeholder="email"
-          onChange={handleInputChange}
-          name="email"
-          value={data.email}
-        />
-        <button disabled={btnDisabled} type="submit">
-          Enviar
-        </button>{" "}
-        {message}
-      </form>
-    </div>
+      <h1>Bookings</h1>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="name"
+            onChange={handleInputChange}
+            name="name"
+            value={data.name} //value conecta nuestro input con el estado. Nos permitira hacer el clear
+          />
+          <input
+            type="email"
+            placeholder="email"
+            onChange={handleInputChange}
+            name="email"
+            value={data.email}
+          />
+           <input
+            type="number"
+            placeholder="Number of persons"
+            onChange={handleInputChange}
+            name="persons"
+            value={data.persons}
+          />
+          <input //FIXME: no se puede guardar en el local no me deja poner el onChange ni value
+          type="datetime-local" 
+          id="fecha1" 
+          name="fecha1">
+          </input>
+          
+          <button disabled={btnDisabled} type="submit">
+            Enviar
+          </button>{" "}
+          {message}
+        </form>
+      </div>
     </>
   );
 };
 
 export default Bookings;
-
-
-
-
-  
-
-
-
-
-
-  
