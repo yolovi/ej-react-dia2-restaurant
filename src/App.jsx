@@ -1,39 +1,30 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header/Header'
+// import Home from './components/Home/Home'
+import Bookings from './components/Bookings/Bookings'
+import Club from './components/Club/Club'
 import Home from './components/Home/Home'
-
-const dishes = [
-  {
-    id:1,
-    name:'dish 1',
-    description:'This is the dish number 1',
-    price:10
-  },
-  {
-    id:2,
-    name:'dish 2',
-    description:'This is the dish number 2',
-    price:20
-  },
-  {
-    id:3,
-    name:'dish 3',
-    description:'This is the dish number 3',
-    price:15
-  }
-]
-
 
 function App() {
 
   return (
     <>
-      <div>
-      <Header/>
-      <Home dishes = {dishes}/>
-      </div>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path= "/" element={<Home />}/>
+          <Route path= "/Bookings" element={<Bookings />} />
+          <Route path= "/Club" element={<Club />} />
+        </Routes>
+      </BrowserRouter>
     </>
+
+     
   )
 }
 
+
+
 export default App
+

@@ -1,28 +1,34 @@
 
-const Home = (props) => {
-        const dishes = props.dishes.map((dish) => (
-          <div key={dish.id}>
-            <h3>{dish.name}</h3>
-            <p>Description: {dish.description}</p>
-            <p>Price: {dish.price}</p>
-          </div>
-        ));
-      
-        return (
-          <div>
-            {dishes}
-          </div>
-        );
-      };
-      
+import Menu from "../Menu/Menu";
 
+const dishes = [
+  {
+    id: 1,
+    name: "dish 1",
+    description: "This is the dish number 1",
+    price: 10,
+  },
+  {
+    id: 2,
+    name: "dish 2",
+    description: "This is the dish number 2",
+    price: 20,
+  },
+  {
+    id: 3,
+    name: "dish 3",
+    description: "This is the dish number 3",
+    price: 15,
+  },
+];
 
-export default Home
+const Home = () => {
+  return (
+    <div>
+      <h1>Menu</h1>
+      <Menu dishes={dishes} />
+    </div>
+  );
+};
 
-
-
-  
-
-
-
-
+export default Home;
