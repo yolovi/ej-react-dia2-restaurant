@@ -29,7 +29,6 @@ function App() {
   return (
     <>
       <div>
-      <h1>holaaa</h1>
       <Header/>
       <Home dishes = {dishes}/>
       </div>
