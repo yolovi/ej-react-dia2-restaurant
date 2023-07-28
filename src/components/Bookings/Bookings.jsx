@@ -8,6 +8,7 @@ const Bookings = () => {
     name: "",
     email: "",
     persons: "",
+    fecha1:"",
   };
 
   //ESTADOS DEL COMPONENTE
@@ -78,8 +79,9 @@ const Bookings = () => {
           <input //FIXME: no se puede guardar en el local no me deja poner el onChange ni value
           type="datetime-local" 
           id="fecha1" 
-          name="fecha1">
-          </input>
+          name="fecha1"
+          onChange={handleInputChange}
+          />
           
           <button disabled={btnDisabled} type="submit">
             Enviar
