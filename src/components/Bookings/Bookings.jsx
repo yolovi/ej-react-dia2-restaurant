@@ -76,7 +76,7 @@ const Bookings = () => {
             name="persons"
             value={data.persons}
           />
-          <input //FIXME: no se puede guardar en el local no me deja poner el onChange ni value
+          <input 
           type="datetime-local" 
           id="fecha1" 
           name="fecha1"
